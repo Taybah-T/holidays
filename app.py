@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 import json
 
 app = Flask(__name__)
@@ -11,6 +11,9 @@ def holiday():
 def holidays():
     with open("holiday.json") as f:
         data =json.load(f)
+        
+    return render_template("holidays.html", holidays=holidays)
+
     return jsonify(data)
 
 @app.post('/test')
