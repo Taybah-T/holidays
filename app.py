@@ -10,11 +10,9 @@ def holiday():
 @app.route('/holiday', methods=["GET"])
 def holidays():
     with open("holiday.json") as f:
-        data =json.load(f)
+        vacation =json.load(f)
         
-    return render_template("holidays.html", holidays=holidays)
-
-    return jsonify(data)
+    return render_template("holiday.html", data=vacation)
 
 @app.post('/test')
 def createTest():
